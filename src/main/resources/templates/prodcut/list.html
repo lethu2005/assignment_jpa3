@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product List</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Mo ta</th>
+    <th>Price</th>
+    <th>Add</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="prod : ${products}">
+    <td th:text="${prod.id}"></td>
+    <td th:text="${prod.name}"></td>
+    <td th:text="${prod.description}"></td>
+    <td th:text="${prod.price}"></td>
+    <td>
+      <form th:action="@{/templates/cart}" th:method="post" th:object="${product}">
+        <input type="hidden" th:name="id" th:value="${prod.id}">
+        <input type="hidden" th:name="name" th:value="${prod.name}">
+        <button type="submit">Add</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

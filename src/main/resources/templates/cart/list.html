@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Cart</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prod : ${cart}">
+            <td th:text="${prod.product.productID}"></td>
+            <td th:text="${prod.product.productName}"></td>
+            <td th:text="${prod.amount}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
